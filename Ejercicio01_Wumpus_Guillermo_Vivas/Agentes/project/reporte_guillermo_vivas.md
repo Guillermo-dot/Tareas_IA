@@ -1,0 +1,8 @@
+**Resultados juego de Wumpus**
+Solo el agente basado en utilidad logró salir vivo y con el oro, marcando 960 puntos en apenas 30 pasos. Los otros tres (reflejo simple, basado en modelos y basado en objetivos) se quedaron atascados en la cueva y agotaron su límite de tiempo. Al final, la lógica matemática de evaluar riesgos contra recompensas fue la única que llevo victorioso a nuestro agente.
+
+El agente de reflejo simple fracasa porque básicamente no tiene memoria. Opera reaccionando únicamente a lo que tiene enfrente en ese instante. Cuando llegó a la casilla [3,1] y sintió la brisa del pozo que se puso en [4,2], su programación le ordenó no avanzar. Como no es capaz de recordar que el camino por el que acaba de pasar ([2,1]) era totalmente seguro, se quedó atrapado dando vueltas sobre su propio eje sin saber cómo retroceder.
+
+Si le acercas un pozo (por ejemplo, a [1,2]): Sentiría la brisa desde la misma casilla de inicio. Al no tener un mapa previo ni incentivos para arriesgarse, su lógica le dicta que dar el primer paso es jugarse la vida, por lo que se bloquearía desde el turno uno sin llegar a explorar la cueva.
+
+Si le alejas los pozos (mandándolos hacia la esquina del oro en [4,4]): Le das espacio para caminar y armar un buen mapa interno. Para cuando por fin sienta la brisa, ya habrá explorado suficientes casillas como para deducir la ubicación exacta del obstáculo por descarte, permitiéndole trazar una ruta para rodearlo en lugar de congelarse.
